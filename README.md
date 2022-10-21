@@ -1,4 +1,4 @@
-# ansoble-workspace
+# ansible-workspace
 Esse repositório do ansible contém playbook para configuração do ambiente de trabalho, será atualizado conforme novas necessidade de ferramentas. As configurações funcionam para Debian. 
 
 
