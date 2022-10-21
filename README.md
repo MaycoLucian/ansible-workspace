@@ -13,9 +13,6 @@ sudo apt update && sudo apt install ansible unzip git -y
 ```
 
 2. Realize o clone desse repositório
-```bash
-git clone https://github.com/MaycoLucian/ansible-workspace.git
-```
 
 3. Executando o playbook
 ```bash
