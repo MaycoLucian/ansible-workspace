@@ -52,6 +52,7 @@
           - redhat.vscode-yaml
           - ms-vscode-remote.remote-ssh
           - vivaxy.vscode-conventional-commits
+          - gencay.vscode-chatgpt
 
     - block:
       - name: Instalando Terraform 1.3.3
