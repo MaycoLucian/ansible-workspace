@@ -23,6 +23,7 @@
           - flameshot
           - virtualbox
           - jq
+          - vlc
 
     - block:
       
