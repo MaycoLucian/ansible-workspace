@@ -45,15 +45,24 @@
         apt:
           name: code
 
-      - name: Instalando Virtual Studio Code Extensions
-        shell:
-          cmd: code --install-extension '{{ item }}'
-        loop:
-          - redhat.ansible
-          - redhat.vscode-yaml
-          - ms-vscode-remote.remote-ssh
-          - vivaxy.vscode-conventional-commits
-          - gencay.vscode-chatgpt
+    - block:
+      - name: Instalando Terraform 1.6.6
+        become: true
+        unarchive:
+          src: 'https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip'
+          dest: /usr/local/bin
+          remote_src: yes
+    
+    - name: Instalando Virtual Studio Code Extensions
+      shell:
+        cmd: code --install-extension '{{ item }}'
+      loop:
+        - redhat.ansible
+        - redhat.vscode-yaml
+        - ms-vscode-remote.remote-ssh
+        - vivaxy.vscode-conventional-commits
+        - gencay.vscode-chatgpt
+        - HashiCorp.terraform
 
     - block:
       - name: Instalando Terraform 1.3.3
