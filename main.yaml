@@ -19,7 +19,7 @@
           - tree
           - python3-pip
           - git
-          - openjdk-11-jdk
+          - openjdk-17-jdk
           - bash-completion
           - flameshot
           - virtualbox
