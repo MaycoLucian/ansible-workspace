@@ -46,10 +46,10 @@
           name: code
 
     - block:
-      - name: Instalando Terraform 1.9.5
+      - name: Instalando Terraform 1.10.5
         become: true
         unarchive:
-          src: 'https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip'
+          src: 'https://releases.hashicorp.com/terraform/1.10.5/terraform_1.10.5_linux_amd64.zip'
           dest: /usr/local/bin
           remote_src: yes
     
@@ -93,14 +93,14 @@
       - name: Instalando Docker Machine
         become: true
         get_url:
-          url: 'https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/bash/docker-machine.bash'
+          url: 'https://raw.githubusercontent.com/docker/machine/v0.16.2/contrib/completion/bash/docker-machine.bash'
           dest: '/etc/bash_completion.d/docker-machine'
               
     - block:
-      - name: Instalando Kubectl 1.25.0
+      - name: Instalando Kubectl 1.26.0
         become: true
         get_url:    
-          url: 'https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl'
+          url: 'https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl'
           dest: /usr/local/bin/kubectl
           mode: 755
 
@@ -109,4 +109,8 @@
         deb: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
       become: true
 
+     - name: Instalar Terminator
+       apt:
+         name: terminator
+         state: present
 ...
