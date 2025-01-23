@@ -1,6 +1,7 @@
 ---
 - name: Praparando o ambiente de trabalho
   hosts: localhost
+  become: true
   user: root
   
   tasks:
@@ -24,6 +25,7 @@
           - virtualbox
           - jq
           - vlc
+          - terminator
 
     - block:
       
@@ -52,10 +54,9 @@
           src: 'https://releases.hashicorp.com/terraform/1.10.5/terraform_1.10.5_linux_amd64.zip'
           dest: /usr/local/bin
           remote_src: yes
-    
+
     - name: Instalando Virtual Studio Code Extensions
-      shell:
-        cmd: code --install-extension '{{ item }}'
+      shell: code --install-extension '{{ item }}' --no-sandbox --user-data-dir=/home/{{ ansible_user_id }}/.vscode
       loop:
         - redhat.ansible
         - redhat.vscode-yaml
@@ -109,8 +110,4 @@
         deb: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
       become: true
 
-     - name: Instalar Terminator
-       apt:
-         name: terminator
-         state: present
 ...
