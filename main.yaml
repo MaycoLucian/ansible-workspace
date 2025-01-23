@@ -110,4 +110,24 @@
         deb: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
       become: true
 
+    - name: Instalar dependências necessárias para o vmware
+      apt:
+        name:
+          - build-essential
+          - linux-headers-generic
+
+    - name: Baixando o VMware Player
+      get_url:
+        url: https://softwareupdate.vmware.com/cds/vmw-desktop/player/17.6.2/24409262/linux/core/VMware-Player-17.6.2-24409262.x86_64.bundle.tar
+        dest: /tmp/VMware-Player.tar
+
+    - name: Descompactando o arquivo baixado
+      command: tar -xvf /tmp/VMware-Player.tar -C /tmp
+
+    - name: Tornando o arquivo executável
+      command: chmod +x /tmp/VMware-Player-17.6.2-24409262.x86_64.bundle
+
+    - name: Executando o instalador do VMware Player
+      command: /tmp/VMware-Player-17.6.2-24409262.x86_64.bundle --console --required --eulas-agreed
+
 ...
