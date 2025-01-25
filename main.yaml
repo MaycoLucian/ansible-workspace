@@ -16,6 +16,7 @@
           - vim
           - curl
           - wget
+          - nmap
           - tree
           - python3-pip
           - git
